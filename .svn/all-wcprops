@@ -1,0 +1,401 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svnroot/skittle/!svn/ver/118/branches/newui
+END
+AnnotationDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/skittle/!svn/ver/90/branches/newui/AnnotationDisplay.cpp
+END
+TextureCanvas.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/skittle/!svn/ver/116/branches/newui/TextureCanvas.h
+END
+zoomIn-mask.png
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/86/branches/newui/zoomIn-mask.png
+END
+UiVariables.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/83/branches/newui/UiVariables.cpp
+END
+GtfReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/skittle/!svn/ver/69/branches/newui/GtfReader.h
+END
+ViewManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/113/branches/newui/ViewManager.h
+END
+MdiChildWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/skittle/!svn/ver/92/branches/newui/MdiChildWindow.h
+END
+BasicTypes.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/108/branches/newui/BasicTypes.h
+END
+QtSkittle.ico
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/16/branches/newui/QtSkittle.ico
+END
+zoomOut.png
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/skittle/!svn/ver/86/branches/newui/zoomOut.png
+END
+SkittleToo.pro
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/118/branches/newui/SkittleToo.pro
+END
+MainWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/113/branches/newui/MainWindow.h
+END
+QtSkittle_private.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/skittle/!svn/ver/16/branches/newui/QtSkittle_private.h
+END
+ColorListEditor.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/102/branches/newui/ColorListEditor.h
+END
+object_script.SkittleToo.Release
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/skittle/!svn/ver/93/branches/newui/object_script.SkittleToo.Release
+END
+SequenceEntry.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/skittle/!svn/ver/94/branches/newui/SequenceEntry.cpp
+END
+AbstractGraph.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/skittle/!svn/ver/107/branches/newui/AbstractGraph.h
+END
+install-mac.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/16/branches/newui/install-mac.txt
+END
+GtfReader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/78/branches/newui/GtfReader.cpp
+END
+FrequencyMap.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/116/branches/newui/FrequencyMap.h
+END
+CylinderDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/116/branches/newui/CylinderDisplay.h
+END
+ViewManager.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/skittle/!svn/ver/113/branches/newui/ViewManager.cpp
+END
+AnnotationDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/116/branches/newui/AnnotationDisplay.h
+END
+MdiChildWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/skittle/!svn/ver/112/branches/newui/MdiChildWindow.cpp
+END
+glwidget.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/113/branches/newui/glwidget.cpp
+END
+OligomerDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/116/branches/newui/OligomerDisplay.h
+END
+UiVariables.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/83/branches/newui/UiVariables.h
+END
+resources.qrc
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/114/branches/newui/resources.qrc
+END
+zoomIn.png
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/skittle/!svn/ver/86/branches/newui/zoomIn.png
+END
+NucleotideLink.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/skittle/!svn/ver/16/branches/newui/NucleotideLink.h
+END
+ColorListEditor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/102/branches/newui/ColorListEditor.cpp
+END
+AbstractGraph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/110/branches/newui/AbstractGraph.cpp
+END
+FastaReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/78/branches/newui/FastaReader.h
+END
+NucleotideDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/116/branches/newui/NucleotideDisplay.h
+END
+install-win.txt
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/16/branches/newui/install-win.txt
+END
+SequenceEntry.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/94/branches/newui/SequenceEntry.h
+END
+FrequencyMap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/skittle/!svn/ver/110/branches/newui/FrequencyMap.cpp
+END
+CylinderDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/110/branches/newui/CylinderDisplay.cpp
+END
+install-linux.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/100/branches/newui/install-linux.txt
+END
+NucleotideLinker.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/16/branches/newui/NucleotideLinker.cpp
+END
+HighlightDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/skittle/!svn/ver/107/branches/newui/HighlightDisplay.h
+END
+OligomerDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/110/branches/newui/OligomerDisplay.cpp
+END
+AlignmentDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/skittle/!svn/ver/116/branches/newui/AlignmentDisplay.cpp
+END
+MainPanel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/skittle/!svn/ver/27/branches/newui/MainPanel.cpp
+END
+glwidget.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/skittle/!svn/ver/113/branches/newui/glwidget.h
+END
+QtSkittle.ui
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/skittle/!svn/ver/16/branches/newui/QtSkittle.ui
+END
+FastaReader.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/81/branches/newui/FastaReader.cpp
+END
+NucleotideDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/skittle/!svn/ver/110/branches/newui/NucleotideDisplay.cpp
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/skittle/!svn/ver/88/branches/newui/main.cpp
+END
+ui_QtSkittle.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/16/branches/newui/ui_QtSkittle.h
+END
+example_Makefile.Release
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/skittle/!svn/ver/116/branches/newui/example_Makefile.Release
+END
+SkittleToo.ico
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/16/branches/newui/SkittleToo.ico
+END
+skittle.svg
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/skittle/!svn/ver/115/branches/newui/skittle.svg
+END
+TextureCanvas.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/skittle/!svn/ver/113/branches/newui/TextureCanvas.cpp
+END
+SkittleToo.dev
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/93/branches/newui/SkittleToo.dev
+END
+HighlightDisplay.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/skittle/!svn/ver/107/branches/newui/HighlightDisplay.cpp
+END
+object_script.SkittleToo.Debug
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/skittle/!svn/ver/93/branches/newui/object_script.SkittleToo.Debug
+END
+QtSkittle_private.rc
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/16/branches/newui/QtSkittle_private.rc
+END
+NucleotideLinker.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/skittle/!svn/ver/116/branches/newui/NucleotideLinker.h
+END
+AlignmentDisplay.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/skittle/!svn/ver/116/branches/newui/AlignmentDisplay.h
+END
+MainPanel.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/skittle/!svn/ver/27/branches/newui/MainPanel.h
+END
+MainWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/skittle/!svn/ver/116/branches/newui/MainWindow.cpp
+END
+BookmarkDialog.ui
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/skittle/!svn/ver/16/branches/newui/BookmarkDialog.ui
+END
+LICENSE.GPL
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/skittle/!svn/ver/34/branches/newui/LICENSE.GPL
+END
+ui_BookmarkDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/skittle/!svn/ver/116/branches/newui/ui_BookmarkDialog.h
+END
+chrY-sample.fa
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/skittle/!svn/ver/16/branches/newui/chrY-sample.fa
+END
