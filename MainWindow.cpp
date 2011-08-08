@@ -25,6 +25,7 @@
 
 MainWindow::MainWindow()
 {
+
 	textArea = NULL;
 	setDockOptions(QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks);
 	setWindowTitle();
@@ -47,16 +48,16 @@ MainWindow::MainWindow()
 	//openAction->trigger();
 }
 
-void MainWindow::setWindowTitle(const Qstring &newTitle){
-    QMainWindow::setWindowTitle(defaultTitle);
+void MainWindow::setWindowTitle(){
+    QMainWindow::setWindowTitle(defaultTitle());
 }
-void MainWindow::setWindowTitle(const Qstring &newTitle){
-    QString title = ""
-    QMainWindow::setWindowTitle(title.appent(defaultTitle).append(titleSeperator).append(newTitle));
-}
-void MainWindow::setWindowTitle(const Qstring &newTitle, const QString &seperator){
+void MainWindow::setWindowTitle(const QString &newTitle){
     QString title = "";
-    QMainWindow::setWindowTitle(title.append(defaultTitle).append(seperator).append(newTitle))
+    QMainWindow::setWindowTitle(title.append(defaultTitle()).append(titleSeperator()).append(newTitle));
+}
+void MainWindow::setWindowTitle(const QString &newTitle, const QString &seperator){
+    QString title = "";
+    QMainWindow::setWindowTitle(title.append(defaultTitle()).append(seperator).append(newTitle));
 }
 
 void MainWindow::createActions() {

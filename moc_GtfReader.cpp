@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'GtfReader.h'
 **
-** Created: Wed Mar 9 02:04:23 2011
+** Created: Sun Aug 7 22:19:42 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!

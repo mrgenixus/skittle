@@ -72,7 +72,9 @@ GLWidget* ViewManager::addNewView(bool suppressOpen)
         localDials = copyUi();
         broadcastPublicValues(localDials);
     }
-	MdiChildWindow* child = new MdiChildWindow(localDials, ui->startDial, mainWindow->tabWidget);//TODO: figure out a better way to manage startDial
+    //TODO: figure out a better way to manage startDial
+                              //MdiChildWindow(UiVariables* gui, QTabWidget* settings, QWidget* parent, Qt::WindowFlags f);
+	MdiChildWindow* child = new MdiChildWindow(localDials, mainWindow->tabWidget);
 	connect( child, SIGNAL(subWindowClosing(MdiChildWindow*)), this, SLOT(closeSubWindow(MdiChildWindow*)));
     addSubWindow(child);
     child->show();

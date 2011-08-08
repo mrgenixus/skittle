@@ -40,13 +40,17 @@ public:
     GtfReader* trackReader;
 	MainWindow();
     
-    const QString defaultTitle = "Skittle Genome Visualizer";
-    const QString titleSeperator = " - ";
+    static const char* defaultTitle () {
+        return "Skittle Genome Visualizer";
+    }
+    static const char* titleSeperator() {
+        return " - ";
+    }
 
 public slots:
     void setWindowTitle();
-    void setWindowTitle(const Qstring &newTitle);
-    void setWindowTitle(const Qstring &newTitle, const QString &seperator);
+    void setWindowTitle(const QString &newTitle);
+    void setWindowTitle(const QString &newTitle, const QString &seperator);
 	void removeButton(QAction* presetAction);
 	void open();
 	void open(QString fileName);

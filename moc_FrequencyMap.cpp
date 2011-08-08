@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'FrequencyMap.h'
 **
-** Created: Wed Mar 9 02:04:18 2011
+** Created: Sun Aug 7 22:19:39 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
