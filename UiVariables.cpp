@@ -107,7 +107,7 @@ void UiVariables::print(QString str) {
 }
 
 void UiVariables::updateDisplay(){
-    emit DisplayChanged(this);
+    emit StateChanged(this);
 }
 
 void UiVariables::createConnections(){

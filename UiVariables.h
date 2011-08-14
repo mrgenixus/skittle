@@ -36,7 +36,7 @@ public slots:
 	//void print(int num1, int num2); 
     
 signals:
-    void StateChanged(UiVariables);
+    void StateChanged(UiVariables*);
     
 private:
     void createConnections();

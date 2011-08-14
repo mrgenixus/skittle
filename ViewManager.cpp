@@ -72,7 +72,9 @@ GLWidget* ViewManager::addNewView(bool suppressOpen)
         localDials = copyUi();
         broadcastPublicValues(localDials);
     }
-	MdiChildWindow* child = new MdiChildWindow(localDials, ui->startDial, mainWindow->tabWidget);//TODO: figure out a better way to manage startDial
+    //TODO: figure out a better way to manage startDial
+                              //MdiChildWindow(UiVariables* gui, QTabWidget* settings, QWidget* parent, Qt::WindowFlags f);
+	MdiChildWindow* child = new MdiChildWindow(localDials, mainWindow->tabWidget);
 	connect( child, SIGNAL(subWindowClosing(MdiChildWindow*)), this, SLOT(closeSubWindow(MdiChildWindow*)));
     addSubWindow(child);
     child->show();
@@ -148,7 +150,7 @@ void ViewManager::addBookmark() {
 	if(activeWidget != NULL) activeWidget->trackReader->addBookmark();
 }
 
-void ViewManager::handleWindowSync()
+void ViewManager::handleWindowSync(int sync)
 {
     for(int i = 0; i < (int)views.size(); ++i) {
         if(views[i]->glWidget != activeWidget) {
@@ -197,7 +199,9 @@ UiVariables* ViewManager::copyUi()
      * Code Moved to UiVariables::UiVariables(Textarea* text,bool NullInstance)
      * 
      ***************************************************************************************/    
-	return new UiVariables(ui->textArea,false); //localDials;
+    UiVariables *localUi = new UiVariables(ui->textArea,false); //localDials;
+    connect(localUi, SIGNAL(StateChanged(UiVariables*)), this, SLOT(updateCurrentDisplay()));
+    return localUi;
 }
 
 void ViewManager::printNum(int num)

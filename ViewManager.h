@@ -32,7 +32,7 @@ public slots:
 	void changeFile(QString);
 	void addAnnotationDisplay(QString);
 	void addBookmark();
-	void handleWindowSync();	
+	void handleWindowSync(int);
 	void changePublicStart(int val);
 	void printNum(int num);
 	void printNum2(int num);

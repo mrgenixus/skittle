@@ -26,7 +26,8 @@ public:
 	GLWidget* glWidget;
 	
 	//MdiChildWindow(UiVariables* gui, QSpinBox* pStart, QTabWidget* settings);
-    MdiChildWindow(UiVariables* gui, QSpinBox* pStart, QTabWidget* settings, QWidget* parent = 0, Qt::WindowFlags f = 0);
+    //Eruh? : //MdiChildWindow(UiVariables* gui, QSpinBox* pStart, QTabWidget* settings, QWidget* parent = 0, Qt::WindowFlags f = 0);
+    MdiChildWindow(UiVariables* gui, QTabWidget* settings, QWidget* parent = 0, Qt::WindowFlags f = 0);
 	void closeEvent(QCloseEvent *event);
 	//createConnections();
 	void hideSettingsTabs();
