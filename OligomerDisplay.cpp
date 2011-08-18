@@ -23,8 +23,8 @@ OligomerDisplay::OligomerDisplay(UiVariables* gui, GLWidget* gl)
 	nucleotide_start = 1;
 	F_width = 250;
 	F_height = 0;
-	changeWidth(ui->widthDial->value());
-	changeSize(ui->sizeDial->value());
+	changeWidth(ui->getWidth());
+	changeSize(ui->getSize());
 	upToDate = false;
 	
 	similarityGraphWidth = 50;
@@ -56,14 +56,14 @@ void OligomerDisplay::createConnections()
 	connect( this, SIGNAL(sizeChanged(int)), this, SIGNAL(displayChanged()));
 	//connect( this, SIGNAL(wordLengthChanged(int)), this, SIGNAL(displayChanged()));
 	
-	connect( ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(changeWidth(int)));
+	connect( ui, SIGNAL(widthChanged(int)), this, SLOT(changeWidth(int)));
 	//connect( this, SIGNAL(widthChanged(int)), ui->widthDial, SLOT(setValue(int)));//width dial = Width
 	
-	connect( ui->startDial, SIGNAL(valueChanged(int)), this, SLOT(changeStart(int)));
-	connect( this, SIGNAL(startChanged(int)), ui->startDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(startChanged(int)), this, SLOT(changeStart(int)));
+	connect( this, SIGNAL(startChanged(int)), ui, SLOT(setStart(int)));
 	
-	connect( ui->sizeDial, SIGNAL(valueChanged(int)), this, SLOT(changeSize(int)));
-	connect( this, SIGNAL(sizeChanged(int)), ui->sizeDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(sizeChanged(int)), this, SLOT(changeSize(int)));
+	connect( this, SIGNAL(sizeChanged(int)), ui, SLOT(setSize(int)));
 }
 
 
@@ -102,10 +102,10 @@ QScrollArea* OligomerDisplay::settingsUi()
 
 void OligomerDisplay::checkVariables()
 {	
-	changeScale(ui->scaleDial->value());	
-	changeWidth(ui->widthDial->value());//width and scale
-	changeStart(ui->startDial->value());
-	changeSize(ui->sizeDial->value());
+	changeScale(ui->getScale());	
+	changeWidth(ui->getWidth());//width and scale
+	changeStart(ui->getStart());
+	changeSize(ui->getSize());
 	changeWordLength(oligDial->value());
 }
 
@@ -405,9 +405,9 @@ string OligomerDisplay::mouseClick(point2D pt)
 	if( pt.x < (int)width()-similarityGraphWidth && pt.x >= 0  )
 	{
 		pt.x = pt.x / 2;
-		int index = pt.y * ui->widthDial->value();
+		int index = pt.y * ui->getWidth();
 		index = index + nucleotide_start;
-		int w = min( 100, ui->widthDial->value() );
+		int w = min( 100, ui->getWidth() );
 		stringstream ss;
 		ss << "Dinucleotide: " << pt.x << "  Count: " << freq[pt.y][pt.x] << "\nSequence:"
 			<< sequence->substr(index, w);

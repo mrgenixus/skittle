@@ -28,26 +28,26 @@ void AbstractGraph::createConnections()
 	connect( this, SIGNAL(startChanged(int)), this, SIGNAL(displayChanged()));
 	connect( this, SIGNAL(sizeChanged(int)), this, SIGNAL(displayChanged()));
 	
-	connect( ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(changeWidth(int)));
-	connect( this, SIGNAL(widthChanged(int)), ui->widthDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(widthChanged(int)), this, SLOT(changeWidth(int)));
+	connect( this, SIGNAL(widthChanged(int)), ui, SLOT(setWidth(int)));
 	
-	connect( ui->startDial, SIGNAL(valueChanged(int)), this, SLOT(changeStart(int)));
-	connect( this, SIGNAL(startChanged(int)), ui->startDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(startChanged(int)), this, SLOT(changeStart(int)));
+	connect( this, SIGNAL(startChanged(int)), ui, SLOT(setStart(int)));
 	
-	connect( ui->sizeDial, SIGNAL(valueChanged(int)), this, SLOT(changeSize(int)));
-	connect( this, SIGNAL(sizeChanged(int)), ui->sizeDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(sizeChanged(int)), this, SLOT(changeSize(int)));
+	connect( this, SIGNAL(sizeChanged(int)), ui, SLOT(setSize(int)));
 
-	connect( ui->scaleDial, SIGNAL(valueChanged(int)), this, SLOT(changeScale(int)));
-	connect( this, SIGNAL(scaleChanged(int)), ui->scaleDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(scaleChanged(int)), this, SLOT(changeScale(int)));
+	connect( this, SIGNAL(scaleChanged(int)), ui, SLOT(setScale(int)));
 	//NOTE: the above line may resolve a synchronization loop issue
 }
 
 void AbstractGraph::checkVariables()
 {
-	changeScale(ui->scaleDial->value());
-	changeWidth(ui->widthDial->value());
-	changeStart(ui->startDial->value());
-	changeSize(ui->sizeDial->value());
+	changeScale(ui->getScale());
+	changeWidth(ui->getWidth());
+	changeStart(ui->getStart());
+	changeSize(ui->getSize());
 }
 
 int AbstractGraph::height()
@@ -193,7 +193,7 @@ void AbstractGraph::setButtonFont()
 void AbstractGraph::setSequence(const string* seq)
 {
 	sequence = seq;	
-	changeSize(ui->sizeDial->value());
+	changeSize(ui->getSize());
 }
 
 string AbstractGraph::mouseClick(point2D pt)

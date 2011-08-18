@@ -19,8 +19,8 @@ FrequencyMap::FrequencyMap(UiVariables* gui, GLWidget* gl)
 	F_width = 250;
 	F_start = 0;
 	F_height = 0;
-	Width = ui->widthDial->value();
-	changeSize(ui->sizeDial->value());
+	Width = ui->getWidth();
+	changeSize(ui->getSize());
 	upToDate = false;
 
 	freq = vector< vector<float> >();
@@ -55,16 +55,16 @@ void FrequencyMap::createConnections()
 	connect( this, SIGNAL(startChanged(int)), this, SIGNAL(displayChanged()));
 	connect( this, SIGNAL(sizeChanged(int)), this, SIGNAL(displayChanged()));
 	
-	connect( ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(changeWidth(int)));
+	connect( ui, SIGNAL(widthChanged(int)), this, SLOT(changeWidth(int)));
 	//connect( this, SIGNAL(widthChanged(int)), ui->widthDial, SLOT(setValue(int)));//width dial = Width
 	
-	connect( ui->startDial, SIGNAL(valueChanged(int)), this, SLOT(changeStart(int)));
-	connect( this, SIGNAL(startChanged(int)), ui->startDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(startChanged(int)), this, SLOT(changeStart(int)));
+	connect( this, SIGNAL(startChanged(int)), ui, SLOT(setStart(int)));
 	
-	connect( ui->sizeDial, SIGNAL(valueChanged(int)), this, SLOT(changeSize(int)));
-	connect( this, SIGNAL(sizeChanged(int)), ui->sizeDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(sizeChanged(int)), this, SLOT(changeSize(int)));
+	connect( this, SIGNAL(sizeChanged(int)), ui, SLOT(setSize(int)));
 	
-	connect( ui->scaleDial, SIGNAL(valueChanged(int)), this, SLOT(changeScale(int)));
+	connect( ui, SIGNAL(scaleChanged(int)), this, SLOT(changeScale(int)));
 }
 
 QScrollArea* FrequencyMap::settingsUi()
@@ -112,7 +112,7 @@ void FrequencyMap::display()
 			{
 				nuc->load_nucleotide();
 			}
-			int displayWidth = ui->widthDial->value() / scale;
+			int displayWidth = ui->getWidth() / scale;
 			calculate(nuc->nucleotide_colors, displayWidth);
 		}
 		else
@@ -127,7 +127,7 @@ void FrequencyMap::display()
 	glPopMatrix();
 
 	//Draw Red indicator according to Width
-	int displayWidth = ui->widthDial->value() / ui->scaleDial->value(); 
+	int displayWidth = ui->getWidth() / ui->getScale(); 
 	glPushMatrix();
 		glColor4f(1,0,0, 1);//red
 	    glTranslated(displayWidth - F_start -1, 202, 0);
@@ -254,7 +254,7 @@ string FrequencyMap::mouseClick(point2D pt)
 		int index = pt.y * Width;
 		index = index + nucleotide_start;
 		size_t index2 = index + pt.x + F_start;
-		size_t w = min( 100, ui->widthDial->value() );
+		size_t w = min( 100, ui->getWidth() );
 		if( index2 + w < sequence->size() )
 		{
 			stringstream ss;

@@ -26,10 +26,10 @@ AlignmentDisplay::AlignmentDisplay(UiVariables* gui, GLWidget* gl)
 	upToDate = true;
 	
 	
-	display_size = ui->sizeDial->value();
-	nucleotide_start = ui->startDial->value();
-	Width = ui->widthDial->value();
-	scale = ui->scaleDial->value();
+	display_size = ui->getSize();
+	nucleotide_start = ui->getStart();
+	Width = ui->getWidth();
+	scale = ui->getScale();
 //	checkVariables();
 	
 	calcMatchTable();
@@ -56,7 +56,7 @@ void AlignmentDisplay::display()
 void AlignmentDisplay::loadTexture()
 {
 	/**/
-	int s = ui->scaleDial->value();
+	int s = ui->getScale();
 	if(s % 4 != 0)
 	{
 		ui->print("Warning: The SCALE on Repeat Overview should be set to a multiple of 4.");
@@ -115,7 +115,7 @@ void AlignmentDisplay::VLRcheck(vector<point> matches)//alternative to loadTextu
 
 void AlignmentDisplay::mergeMatches(vector<color>& original, vector<point>& vlr)
 {
-	int start = 250 / ui->scaleDial->value();
+	int start = 250 / ui->getScale();
 	start = max( 10, start);
 	for(size_t i = 0; i < vlr.size(); ++i)
 	{
@@ -391,9 +391,9 @@ void AlignmentDisplay::toggleVisibility()
 {
 	if(hidden)
 	{
-		int s = ui->scaleDial->value();
+		int s = ui->getScale();
 		s = max(4, (s / 4) * 4);//enforces scale is a multiple of 4
-		ui->scaleDial->setValue(s);	
+		ui->setScale(s);	
 	}
 	AbstractGraph::toggleVisibility();	
 }

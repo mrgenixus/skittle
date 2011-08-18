@@ -16,8 +16,8 @@ NucleotideDisplay::NucleotideDisplay(UiVariables* gui, GLWidget* gl)
 	
 	nucleotide_start = 1;
 	scale = 1;
-	changeWidth(ui->widthDial->value());
-	changeSize(ui->sizeDial->value());
+	changeWidth(ui->getWidth());
+	changeSize(ui->getSize());
 	upToDate = false;
 	
 	invert = false;
@@ -42,16 +42,16 @@ void NucleotideDisplay::createConnections()
 	connect( this, SIGNAL(startChanged(int)), this, SIGNAL(displayChanged()));
 	connect( this, SIGNAL(sizeChanged(int)), this, SIGNAL(displayChanged()));
 	
-	connect( ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(changeWidth(int)));
+	connect( ui, SIGNAL(widthChanged(int)), this, SLOT(changeWidth(int)));
 	//connect( this, SIGNAL(widthChanged(int)), ui->widthDial, SLOT(setValue(int)));
 	
-	connect( ui->startDial, SIGNAL(valueChanged(int)), this, SLOT(changeStart(int)));
-	connect( this, SIGNAL(startChanged(int)), ui->startDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(startChanged(int)), this, SLOT(changeStart(int)));
+	connect( this, SIGNAL(startChanged(int)), ui, SLOT(setStart(int)));
 	
-	connect( ui->sizeDial, SIGNAL(valueChanged(int)), this, SLOT(changeSize(int)));
-	connect( this, SIGNAL(sizeChanged(int)), ui->sizeDial, SLOT(setValue(int)));
+	connect( ui, SIGNAL(sizeChanged(int)), this, SLOT(changeSize(int)));
+	connect( this, SIGNAL(sizeChanged(int)), ui, SLOT(setSize(int)));
 
-	connect( ui->scaleDial, SIGNAL(valueChanged(int)), this, SLOT(changeScale(int)));
+	connect( ui, SIGNAL(scaleChanged(int)), this, SLOT(changeScale(int)));
 }
 
 void NucleotideDisplay::display()

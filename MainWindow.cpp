@@ -365,12 +365,12 @@ UiVariables* MainWindow::getDisplayVariables()
     static bool values_set = false;
     if ( ! values_set ) {
         constraints = new UiVariables(textArea);
-        constraints->sizeDial = displayLength;
-        constraints->widthDial = widthDial;
-        constraints->startDial = startOffset;
-        constraints->scaleDial = scale;
-        constraints->zoomDial = zoom;
-        constraints->offsetDial = viewOffset;
+        constraints->setSizeDial(displayLength);
+        constraints->setWidthDial(widthDial);
+        constraints->setStartDial(startOffset);
+        constraints->setScaleDial(scale);
+        constraints->setZoomDial(zoom);
+        constraints->setOffsetDial(viewOffset);
         values_set = true;
     }
     return constraints;
