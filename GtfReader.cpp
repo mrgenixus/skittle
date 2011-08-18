@@ -54,10 +54,10 @@ void GtfReader::addBookmark()//int start, int end)
 	dialog.setupUi(&parent);
 	
 	std::stringstream ss;
-	ss << ui->startDial->value();
+	ss << ui->getStart();
 	dialog.start->setText( QString( ss.str().c_str() ) );
 	std::stringstream ss2;
-	ss2 << ui->startDial->value() + ui->sizeDial->value();
+	ss2 << ui->getStart() + ui->getSize();
 	dialog.end->setText( QString(ss2.str().c_str() ) );
 	dialog.sequence->setText( QString(chrName.c_str()) );
 	

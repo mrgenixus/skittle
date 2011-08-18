@@ -144,8 +144,8 @@ void GLWidget::createConnections()
 
 	/****CONNECT LOCAL VARIABLES*******/ 
 	connect(ui->zoomDial,  SIGNAL(valueChanged(int)), this, SLOT(changeZoom(int)));
-	connect(ui->scaleDial, SIGNAL(valueChanged(int)), this, SLOT(updateDisplaySize()));
-	connect(ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(updateDisplaySize()));
+	connect(ui, SIGNAL(scaleChanged(int)), this, SLOT(updateDisplaySize()));
+	connect(ui, SIGNAL(widthChanged(int)), this, SLOT(updateDisplaySize()));
 }
 
 QSize GLWidget::minimumSizeHint() const
@@ -202,7 +202,7 @@ void GLWidget::displayString(const string* seq)
 		graphs[i]->invalidate();
 	}
     
-	ui->startDial->setValue(1);
+	ui->setStart(1);
 	emit displaySizeChanged();
 }
 
@@ -280,14 +280,14 @@ void GLWidget::updateDisplaySize()
 	//ui->print("Updating Size: ", ui->sizeDial->value());
 	QSize dimensions = size();
 	double pixelHeight = dimensions.height();
-	int w = ui->widthDial->value();
-	double zoom = 100.0 / ui->zoomDial->value();
+	int w = ui->getWidth();
+	double zoom = 100.0 / ui->getZoom();
 	int display_lines = static_cast<int>(pixelHeight / 3.0 * zoom + 0.5);
 	
-	ui->sizeDial->setSingleStep(w * 10);
-	if(ui->sizeDial->value() !=  w * display_lines )
+	ui->getSizeDial()->setSingleStep(w * 10);
+	if(ui->getSize() !=  w * display_lines )
 	{
-		ui->sizeDial->setValue( w * display_lines );
+		ui->setSize( w * display_lines );
 		emit displaySizeChanged();
 		//updateDisplay();
 	}

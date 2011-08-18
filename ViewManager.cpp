@@ -32,7 +32,7 @@ ViewManager::ViewManager(MainWindow* window, UiVariables* gui)
 
 void ViewManager::createConnections()
 {	
-    //this is called directly by UiVariables:
+    //this should be called directly by UiVariables:
     
 	//~ connect(ui->widthDial, SIGNAL(editingFinished()), this, SLOT(updateCurrentDisplay()));	
     //~ connect(ui->zoomDial,  SIGNAL(editingFinished()), this, SLOT(updateCurrentDisplay()));
@@ -166,8 +166,8 @@ void ViewManager::handleWindowSync()
 void ViewManager::changePublicStart(int val)
 {
 	//local.start changes
-	int set = max(0, val - activeWidget->ui->offsetDial->value());
-	ui->startDial->setValue(set);
+	int set = max(0, val - activeWidget->ui->getOffset());
+	ui->setStart(set);
 	//ui->print("changePublicStart: ", set);	
 }
 
@@ -217,51 +217,53 @@ void ViewManager::printNum2(int num)
 void ViewManager::connectVariables(GLWidget* active)
 {
     UiVariables* local = active->ui;
-	connect(local->sizeDial	, SIGNAL(valueChanged(int)), ui->sizeDial	, SLOT(setValue(int)));
+	connect(local, SIGNAL(sizeChanged(int)), ui , SLOT(setSize(int)));
 	//connect(ui->sizeDial		, SIGNAL(valueChanged(int)), local->sizeDial	, SLOT(setValue(int)));
 
-	connect(local->widthDial	, SIGNAL(valueChanged(int)), ui->widthDial	, SLOT(setValue(int)));
-	connect(ui->widthDial	, SIGNAL(valueChanged(int)), local->widthDial, SLOT(setValue(int)));
+	connect(local, SIGNAL(widthChanged(int)), ui, SLOT(setWidth(int)));
+	connect(ui, SIGNAL(widthChanged(int)), local, SLOT(setWidth(int)));
 
 	//OLD:widget -> local->start -> pub.start
 	//NEW:widget -> local->start -> vMan.slots -> pub.start
 	//connect(local->startDial	, SIGNAL(valueChanged(int)), ui->startDial	, SLOT(setValue(int)));
-	connect(local->startDial , SIGNAL(valueChanged(int)), this, SLOT(changePublicStart(int)));
-	connect(ui->startDial	, SIGNAL(valueChanged(int)), 
+	connect(local, SIGNAL(startChanged(int)), this, SLOT(changePublicStart(int)));
+	connect(ui, SIGNAL(startChanged(int)), 
 		dynamic_cast<MdiChildWindow*>(active->parent), SLOT(changeLocalStartFromPublicStart(int)));
 	//connect(this, SIGNAL(startChangeFromPublicStart(int)), local->startDial, SLOT(setValue(int)));	
 
-	connect(local->scaleDial	, SIGNAL(valueChanged(int)), ui->scaleDial	, SLOT(setValue(int)));
-	connect(ui->scaleDial	, SIGNAL(valueChanged(int)), local->scaleDial, SLOT(setValue(int)));
-	connect(active,           SIGNAL(scaleChanged(int)), local->scaleDial,    SLOT(setValue(int)));
-
-	connect(local->zoomDial	, SIGNAL(valueChanged(int)), ui->zoomDial	, SLOT(setValue(int)));
-	connect(ui->zoomDial		, SIGNAL(valueChanged(int)), local->zoomDial	, SLOT(setValue(int)));
+	connect(local, SIGNAL(scaleChanged(int)), ui, SLOT(setScale(int)));
+	connect(ui , SIGNAL(scaleChanged(int)), local, SLOT(setScale(int)));
+    
+	connect(active,           SIGNAL(scaleChanged(int)), local,    SLOT(setScale(int)));
     connect(active, SIGNAL(scaleChangedSmart(int)), this, SLOT(scaleChangedSmart(int)));
+    
+	connect(local, SIGNAL(zoomChanged(int)), ui	, SLOT(setZoom(int)));
+	connect(ui, SIGNAL(zoomChanged(int)), local, SLOT(setZoom(int)));
+    
 }
 
 void ViewManager::disconnectVariables(GLWidget* active)
 {
     UiVariables* local = active->ui;
     
-	disconnect(local->sizeDial	, SIGNAL(valueChanged(int)), ui->sizeDial	, SLOT(setValue(int)));
-	disconnect(ui->sizeDial		, SIGNAL(valueChanged(int)), local->sizeDial	, SLOT(setValue(int)));
+	disconnect(local, SIGNAL(sizeChanged(int)), ui, SLOT(setSize(int)));
+	disconnect(ui, SIGNAL(sizeChanged(int)), local, SLOT(setSize(int)));
 
-	disconnect(local->widthDial	, SIGNAL(valueChanged(int)), ui->widthDial	, SLOT(setValue(int)));
-	disconnect(ui->widthDial	, SIGNAL(valueChanged(int)), local->widthDial, SLOT(setValue(int)));
+	disconnect(local, SIGNAL(widthChanged(int)), ui, SLOT(setWidth(int)));
+	disconnect(ui, SIGNAL(widthChanged(int)), local, SLOT(setWidth(int)));
 
-	disconnect(local->startDial , SIGNAL(valueChanged(int)), this, SLOT(changePublicStart(int)));
-	disconnect(ui->startDial	, SIGNAL(valueChanged(int)), 
+	disconnect(local , SIGNAL(startChanged(int)), this, SLOT(changePublicStart(int)));
+	disconnect(ui, SIGNAL(startChanged(int)), 
 		dynamic_cast<MdiChildWindow*>(active->parent), SLOT(changeLocalStartFromPublicStart(int)));
 	//disconnect(this, SIGNAL(startChangeFromPublicStart(int)), local->startDial, SLOT(setValue(int)));	
 	
 	//disconnect(local->offsetDial, SIGNAL(valueChanged(int)), this, SLOT(changeLocalStart(int)));
 
-	disconnect(local->scaleDial	, SIGNAL(valueChanged(int)), ui->scaleDial	, SLOT(setValue(int)));
-	disconnect(ui->scaleDial	, SIGNAL(valueChanged(int)), local->scaleDial, SLOT(setValue(int)));
+	disconnect(local, SIGNAL(scaleChanged(int)), ui, SLOT(setScale(int)));
+	disconnect(ui, SIGNAL(scaleChanged(int)), local, SLOT(setValue(int)));
 
-	disconnect(local->zoomDial	, SIGNAL(valueChanged(int)), ui->zoomDial	, SLOT(setValue(int)));
-	disconnect(ui->zoomDial		, SIGNAL(valueChanged(int)), local->zoomDial	, SLOT(setValue(int)));
+	disconnect(local, SIGNAL(zoomChanged(int)), ui, SLOT(setZoom(int)));
+	disconnect(ui	, SIGNAL(zoomChanged(int)), local, SLOT(zoomValue(int)));
 }
 void ViewManager::updateCurrentDisplay(){
 	//activeWidget->reportOnFinish();

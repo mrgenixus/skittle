@@ -52,7 +52,7 @@ private:
 	QScrollBar* horizontalScrollBar;
 	QScrollBar* verticalScrollBar;
     QFrame* subFrame;
-	QSpinBox* publicStart;
+	int publicStart;
 	QTabWidget* settingsDock;
 	vector<QScrollArea*> settingsTabs;
     

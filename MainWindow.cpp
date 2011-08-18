@@ -332,6 +332,7 @@ void MainWindow::addDisplayDivider()
 
 void MainWindow::createUiConnections()
 {	/******Internal UI Logic*********/
+    /** Should be moved to UiVariables*/
     connect(exitAction, SIGNAL(triggered()), this, SLOT(close())); 
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(helpAction, SIGNAL(triggered()), this, SLOT(helpDialog()));
@@ -346,7 +347,7 @@ void MainWindow::createUiConnections()
     connect( doubleDisplayWidth, SIGNAL(clicked()), widthDial, SIGNAL(editingFinished()));
 	
     connect( addViewAction, SIGNAL(triggered()), viewManager, SLOT(addNewView()));
-	connect( syncCheckBox, SIGNAL(stateChanged(int)), viewManager, SLOT(handleWindowSync()));
+	connect( syncCheckBox, SIGNAL(stateChanged(int)), viewManager, SLOT(handleWindowSync(int)));
 }
 void MainWindow::createFileConnections()
 {

@@ -9,7 +9,7 @@ using std::find;
 MdiChildWindow::MdiChildWindow(UiVariables* gui, QTabWidget* settings, QWidget* parent, Qt::WindowFlags f)
 	: QFrame(parent,f)
 {
-    publicStart = gui->startDial;
+    publicStart = gui->getStart();
 	settingsDock = settings;
     setWindowTitle("Skittle Logo"); //?
     
@@ -47,25 +47,25 @@ void MdiChildWindow::setupLayout(){
     
     /**Scrollbars**/
 	connect(glWidget, SIGNAL(displaySizeChanged()), this, SLOT(setPageSize()));
-	connect(verticalScrollBar, SIGNAL(valueChanged(int)), glWidget->ui->startDial, SLOT(setValue(int)));
+	connect(verticalScrollBar, SIGNAL(valueChanged(int)), glWidget->ui, SLOT(setStart(int)));
 	connect(verticalScrollBar, SIGNAL(sliderReleased()), glWidget->ui, SLOT(updateDisplay()));
-	connect(glWidget->ui->startDial, SIGNAL(valueChanged(int)), verticalScrollBar, SLOT(setValue(int)));
+	connect(glWidget->ui, SIGNAL(startChanged(int)), verticalScrollBar, SLOT(setValue(int)));
 }
 
 void MdiChildWindow::changeLocalStartFromPublicStart(int val)
 {
 	int start = val;
-	int offset = glWidget->ui->offsetDial->value();
+	int offset = glWidget->ui->getOffset();
 	
-	glWidget->ui->startDial->setValue((int)max(0, start + offset));
+	glWidget->ui->setStart((int)max(0, start + offset));
 }
 
 void MdiChildWindow::changeLocalStartFromOffset(int val)
 {
     //move to ui
-	int start = publicStart->value();
-	int offset = glWidget->ui->offsetDial->value();
-	glWidget->ui->startDial->setValue((int)max(0, start + offset));
+	int start = publicStart;
+	int offset = glWidget->ui->getOffset();
+	glWidget->ui->setStart((int)max(0, start + offset));
 }
 
 void MdiChildWindow::closeEvent(QCloseEvent *event)
@@ -77,7 +77,7 @@ void MdiChildWindow::closeEvent(QCloseEvent *event)
     
     //shouldn't this stuff be in the destructor? .. and use QObject::deleteLater()?
 	delete glWidget;	
-	delete glWidget->ui->offsetDial;//->hide();
+	//delete glWidget->ui->offsetDial;//->hide();
 	for(int i = 0; i < (int)settingsTabs.size(); ++i)
 		delete settingsTabs[i];
 	event->accept();
@@ -89,8 +89,8 @@ void MdiChildWindow::connectWidget() {
 	connect(glWidget, SIGNAL(totalWidthChanged(int)), this, SLOT(setHorizontalWidth(int)));
     
     //move to ui:
-	connect(glWidget->ui->widthDial, SIGNAL(valueChanged(int)), this, SLOT(setOffsetStep(int)));
-	connect(glWidget->ui->offsetDial, SIGNAL(valueChanged(int)), this, SLOT(changeLocalStartFromOffset(int)));
+	connect(glWidget->ui->getWidthDial, SIGNAL(valueChanged(int)), this, SLOT(setOffsetStep(int)));
+	connect(glWidget->ui->getOffsetDial, SIGNAL(valueChanged(int)), this, SLOT(changeLocalStartFromOffset(int)));
 }
 
 void MdiChildWindow::setHorizontalWidth(int val) {
@@ -100,12 +100,12 @@ void MdiChildWindow::setHorizontalWidth(int val) {
 
 void MdiChildWindow::setOffsetStep(int val) {
     //move to ui.
-	glWidget->ui->offsetDial->setSingleStep(val);
+	glWidget->ui->getOffsetDial()->setSingleStep(val);
 }
 
 void MdiChildWindow::setPageSize() {
-	if( glWidget != NULL) verticalScrollBar->setMaximum( max(0, (int)(glWidget->seq()->size() - glWidget->ui->widthDial->value()) ) );
-	verticalScrollBar->setPageStep(glWidget->ui->sizeDial->value());
+	if( glWidget != NULL) verticalScrollBar->setMaximum( max(0, (int)(glWidget->seq()->size() - glWidget->ui->getWidth()) ) );
+	verticalScrollBar->setPageStep(glWidget->ui->getSize());
 }
 
 void MdiChildWindow::createSettingsTabs()

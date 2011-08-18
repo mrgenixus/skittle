@@ -67,10 +67,10 @@ GLuint AnnotationDisplay::render()
 void AnnotationDisplay::displayTrack(const vector<track_entry>& track)
 {
 	max_width = 1;
-	int pix_start = ui->startDial->value();
-	int width = ui->widthDial->value();
+	int pix_start = ui->getStart();
+	int width = ui->getWidth();
 	int pix_stop = pix_start + width;
-	int display_size = ui->sizeDial->value();
+	int display_size = ui->getSize();
 	int next_spot = 0;
 	
 	if(track.empty()) 
@@ -148,8 +148,8 @@ string AnnotationDisplay::mouseClick(point2D pt)
 	if( pt.x <= width() && pt.x >= 0 )
 	{
 		ui->print("-------------");
-		int start = ui->startDial->value() + pt.y * ui->widthDial->value() + pt.x;
-		int stop = start + ui->widthDial->value();
+		int start = ui->getStart() + pt.y * ui->getWidth() + pt.x;
+		int stop = start + ui->getWidth();
 		if(!gtfTrack.empty())
 		{
 			for(int i = 0; i < gtfTrack.size(); ++i)
