@@ -150,7 +150,7 @@ void ViewManager::addBookmark() {
 	if(activeWidget != NULL) activeWidget->trackReader->addBookmark();
 }
 
-void ViewManager::handleWindowSync()
+void ViewManager::handleWindowSync(int sync)
 {
     for(int i = 0; i < (int)views.size(); ++i) {
         if(views[i]->glWidget != activeWidget) {
@@ -199,7 +199,9 @@ UiVariables* ViewManager::copyUi()
      * Code Moved to UiVariables::UiVariables(Textarea* text,bool NullInstance)
      * 
      ***************************************************************************************/    
-	return new UiVariables(ui->textArea,false); //localDials;
+    UiVariables *localUi = new UiVariables(ui->textArea,false); //localDials;
+    connect(localUi, SIGNAL(StateChanged(UiVariables*)), this, SLOT(updateCurrentDisplay()));
+    return localUi;
 }
 
 void ViewManager::printNum(int num)

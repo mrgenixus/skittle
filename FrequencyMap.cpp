@@ -253,8 +253,8 @@ string FrequencyMap::mouseClick(point2D pt)
 		pt.x *= scale;
 		int index = pt.y * Width;
 		index = index + nucleotide_start;
-		int index2 = index + pt.x + F_start;
-		int w = min( 100, ui->widthDial->value() );
+		size_t index2 = index + pt.x + F_start;
+		size_t w = min( 100, ui->widthDial->value() );
 		if( index2 + w < sequence->size() )
 		{
 			stringstream ss;

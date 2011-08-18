@@ -75,7 +75,7 @@ void FastaReader::readFile(QString fileName)
 		progressBar->setMinimumDuration(0);
     	QObject::connect(this, SIGNAL(progressValueChanged(int)), progressBar, SLOT(setValue(int)));
 
-		for(int i = 0; i < buffer.size(); ++i)
+		for(size_t i = 0; i < buffer.size(); ++i)
 		{
 			sequence[i] = upperCase(buffer[i]);
 			if(i % blockSize == 0)

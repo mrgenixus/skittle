@@ -154,7 +154,7 @@ vector<track_entry>  GtfReader::readFile(QString filename)
 	
 /*PRIVATE FUNCTIONS*/
 
-/***********OUTPUT ANNOTATED SEQUENCE************** /
+/***********OUTPUT ANNOTATED SEQUENCE**************
 void GtfReader::snipAnnotatedSequence()
 {
 	const string* seq = glWidget->nuc->sequence;
@@ -164,7 +164,7 @@ void GtfReader::snipAnnotatedSequence()
 		fout << seq->substr(annotation_track[i].start, annotation_track[i].stop - annotation_track[i].start);
 	}
 	fout.close();
-}/**/
+}*/
 	
 color GtfReader::color_entry()
 {

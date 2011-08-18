@@ -27,7 +27,7 @@ TextureCanvas::TextureCanvas(vector<color> pixels, int w)
 	height = pixels.size() / width;
     
     //verify that textures can be allocated
-	int max_size;
+    int max_size;
     glGetIntegerv(GL_MAX_TEXTURE_SIZE, &max_size);
 	if(max_size > 0)
 	{
@@ -44,13 +44,13 @@ TextureCanvas::TextureCanvas(vector<color> pixels, int w)
 		createEmptyTiles(canvas_width, canvas_height, max_size);
 		
 	
-		for(int i = 0; i < pixels.size(); i++)
+		for(size_t i = 0; i < pixels.size(); i++)
 		{
             
 			color c1 = pixels[i];
             
-            int x = (i % width) / max_size; //(horizontal Index)
-            int y = (i / width) / max_size; //(vertical Index)
+            size_t x = (i % width) / max_size; //(horizontal Index)
+            size_t y = (i / width) / max_size; //(vertical Index)
             
             if (x >= canvas.size() || y >= canvas.size()) continue;
             
