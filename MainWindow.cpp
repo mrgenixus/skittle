@@ -409,7 +409,7 @@ void MainWindow::openGtf()
 }
 void MainWindow::changeWidth(int newWidth){
     if (newWidth != oldWidth){
-        int widthChange = abs(newWidth - oldWidth);
+        /* int widthChange = abs(newWidth - oldWidth); */
         
         int newScale = 1;
         int displayWidth = newWidth / scale->value();
@@ -529,7 +529,7 @@ void MainWindow::helpDialog()
 		" that walks through the basic tools of Skittle and some real world"
 		" genome patterns that can be identified with Skittle.</p>"
 		));
-    /** /    
+	/*
 #ifndef QT_NO_IMAGEFORMAT_XPM
     QImage logo(qtlogo_xpm);
 #else
@@ -552,7 +552,7 @@ void MainWindow::helpDialog()
     }
     QPixmap pm = QPixmap::fromImage(logo);
     if (!pm.isNull())
-        mb.setIconPixmap(pm);/**/
+        mb.setIconPixmap(pm);*/
 #if defined(Q_OS_WINCE)
     mb.setDefaultButton(mb.addButton(QMessageBox::Ok));
 #else

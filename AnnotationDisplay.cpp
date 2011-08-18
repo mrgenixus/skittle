@@ -71,7 +71,7 @@ void AnnotationDisplay::displayTrack(const vector<track_entry>& track)
 	int width = ui->widthDial->value();
 	int pix_stop = pix_start + width;
 	int display_size = ui->sizeDial->value();
-	int next_spot = 0;
+	size_t next_spot = 0;
 	
 	if(track.empty()) 
 		return;
@@ -81,7 +81,7 @@ void AnnotationDisplay::displayTrack(const vector<track_entry>& track)
 	for(int row = 0; row < display_size / width; row++)
 	{
 		//check to see if any of the old tracks are done
-		for(int k = 0; k < activeEntries.size(); ++k)
+		for(size_t k = 0; k < activeEntries.size(); ++k)
 		{
 			if( !activeEntries[k].isBlank() )
 			{
@@ -108,7 +108,7 @@ void AnnotationDisplay::displayTrack(const vector<track_entry>& track)
 		//display each track
 		glPushMatrix();
 			glScaled(1,-1,1);
-		for(int x = 0; x < activeEntries.size(); ++x)
+		for(size_t x = 0; x < activeEntries.size(); ++x)
 		{
 			color c;
 			if(activeEntries[x].isBlank())
@@ -131,7 +131,7 @@ void AnnotationDisplay::displayTrack(const vector<track_entry>& track)
 
 void AnnotationDisplay::stackEntry(vector<track_entry>& activeEntries, track_entry item)
 {
-		for(int k = 0; k < activeEntries.size(); ++k)
+		for(size_t k = 0; k < activeEntries.size(); ++k)
 		{
 			if( activeEntries[k].isBlank() )
 			{
@@ -152,7 +152,7 @@ string AnnotationDisplay::mouseClick(point2D pt)
 		int stop = start + ui->widthDial->value();
 		if(!gtfTrack.empty())
 		{
-			for(int i = 0; i < gtfTrack.size(); ++i)
+			for(size_t i = 0; i < gtfTrack.size(); ++i)
 			{
 				if(((gtfTrack[i].start >= start && gtfTrack[i].start <= stop)//start in range
 				    || (gtfTrack[i].stop >= start && gtfTrack[i].stop <= stop)//end in range

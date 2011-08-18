@@ -18,8 +18,8 @@ using namespace std;
 class NucleotideLinker
 {
 public:
-	int F_width;
-	int min_width;
+	size_t F_width;
+	unsigned int min_width;
 	vector<NucleotideLink> links;
 
 	NucleotideLinker();
@@ -43,9 +43,9 @@ private:
 	
 	NucleotideLink multiples_check(const string& seq, NucleotideLink match, int consensus_width);
 	
-	NucleotideLink localized_search(const string& seq, int start, int dist, unsigned int range);
+	NucleotideLink localized_search(const string& seq, size_t start, size_t dist, size_t range);
 	
-	void check_for_max(const string& seq, int dist, int index, short int& max, int& best_distance);
+	void check_for_max(const string& seq, size_t dist, size_t index, short int& max, int& best_distance);
 	
 	float average( const list<int>& window );
 	

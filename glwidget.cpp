@@ -124,14 +124,14 @@ GLWidget::~GLWidget()
 
 void GLWidget::createButtons()
 {
-   	for(int i = 0; i < graphs.size(); ++i)
+    for(size_t i = 0; i < graphs.size(); ++i)
    		emit addGraphMode( graphs[i] );
    	emit addDivider();
 }
 
 void GLWidget::createConnections()
 {
-   	for(int i = 0; i < graphs.size(); ++i)
+    for(size_t i = 0; i < graphs.size(); ++i)
    	{
    		//connect( graphs[i], SIGNAL(displayChanged()), this, SLOT(updateDisplay()) );
         //connect( this, SIGNAL(useTextures(bool)), graphs[i], SLOT(useTextures(bool)) );
@@ -167,7 +167,7 @@ void GLWidget::setTotalDisplayWidth()
 {	
 	//ui->print("SetWidth: ", ui->widthDial->value());
 	int total_width = border;
-	for(int i = 0; i < graphs.size(); ++i)
+	for(size_t i = 0; i < graphs.size(); ++i)
 	{
 		if(graphs[i]->hidden == false)
 	   		total_width += graphs[i]->width() + border;
@@ -196,7 +196,7 @@ void GLWidget::displayString(const string* seq)
 {
 	ui->print("New sequence received.  Size:", seq->size());
 
-	for(int i = 0; i < graphs.size(); ++i) {
+    for(size_t i = 0; i < graphs.size(); ++i) {
         
 		graphs[i]->setSequence(seq);
 		graphs[i]->invalidate();
@@ -327,7 +327,7 @@ void GLWidget::updateDisplaySize()
 		}
 	}
 	return tempTrackDisplay;
-}/**/
+}*/
 
 AnnotationDisplay* GLWidget::addAnnotationDisplay(QString fName)
 {
@@ -361,7 +361,7 @@ AnnotationDisplay* GLWidget::addAnnotationDisplay(QString fName)
 AnnotationDisplay* GLWidget::findMatchingAnnotationDisplay(string fileName)
 {
 	AnnotationDisplay* tempTrackDisplay = NULL;
-	for ( int n = 0; n < graphs.size(); n++)
+	for (size_t n = 0; n < graphs.size(); n++)
 	{
 		AnnotationDisplay* testPtr = dynamic_cast<AnnotationDisplay*>(graphs[n]);
 		if ( testPtr != NULL && testPtr->getFileName().compare(fileName) == 0 )
@@ -476,7 +476,7 @@ QPointF GLWidget::pixelToGlCoords(QPoint pCoords, double z)
 
 void GLWidget::initializeGL()
 {
-	for(int i = 0; i < graphs.size(); ++i)
+	for(size_t i = 0; i < graphs.size(); ++i)
 		graphs[i]->setSequence(seq());
 	
     qglClearColor(QColor::fromRgbF(0.5, 0.5, 0.5));
@@ -490,7 +490,7 @@ void GLWidget::initializeGL()
 
 void GLWidget::paintGL()
 {
-	/** /
+	/*
 	if(!align->hidden)//TODO: move this inside AlignmentDisplay
 	{
 		int scale = ui->scaleDial->value();
@@ -506,7 +506,7 @@ void GLWidget::paintGL()
 				return;
 			}
 		}
-	}/**/  
+	}*/
 	//ui->print("Frame: ", ++frame);
     glMatrixMode(GL_MODELVIEW);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
